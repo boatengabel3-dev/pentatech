@@ -1,0 +1,6 @@
+{
+  "name": "TEAM PENTATECH",
+  "description": "Official website and administrative content management system for TEAM PENTATECH — African technology and innovation community. Building Tomorrow, Today.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
