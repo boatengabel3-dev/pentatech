@@ -38,24 +38,19 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ className = '' }) => {
 
     window.addEventListener('resize', handleResize);
 
-    // Particle colors based on official Pentatech palette
+    // Particle colors: pure white and silver tones on total black
     const colors = [
-      '#FFC857', // Bright Gold
-      '#D99A28', // Primary Gold
-      '#FFE09A', // Light Gold
-      '#9C571B', // Bronze
-      '#168BDA', // Electric Blue accent
-      '#B52B20', // Crimson Red accent
+      '#FFFFFF', // Pure White
+      '#F5F5F5', // Crisp White
+      '#E5E5E5', // Soft White
+      '#D4D4D4', // Silver White
     ];
 
     const particleCount = Math.min(Math.floor((width * height) / 12000), 85);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const isAccent = Math.random() < 0.15;
-      const accentColor = Math.random() < 0.6 ? '#168BDA' : '#B52B20';
-      const goldColor = colors[Math.floor(Math.random() * 4)];
-
+      const whiteColor = colors[Math.floor(Math.random() * colors.length)];
       const baseRadius = Math.random() * 2 + 1;
       particles.push({
         x: Math.random() * width,
@@ -64,9 +59,9 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ className = '' }) => {
         vy: (Math.random() - 0.5) * 0.45,
         radius: baseRadius,
         baseRadius,
-        color: isAccent ? accentColor : goldColor,
-        alpha: Math.random() * 0.5 + 0.3,
-        pulseSpeed: Math.random() * 0.02 + 0.01,
+        color: whiteColor,
+        alpha: Math.random() * 0.6 + 0.3,
+        pulseSpeed: Math.random() * 0.02 + 0.008,
         pulsePhase: Math.random() * Math.PI * 2,
       });
     }
@@ -154,8 +149,8 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ className = '' }) => {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            const lineAlpha = (1 - dist / maxDistance) * 0.22;
-            ctx.strokeStyle = '#D99A28';
+            const lineAlpha = (1 - dist / maxDistance) * 0.25;
+            ctx.strokeStyle = '#FFFFFF';
             ctx.globalAlpha = lineAlpha;
             ctx.lineWidth = 0.8;
             ctx.stroke();

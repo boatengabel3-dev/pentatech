@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useCMS } from '../../context/CMSContext';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { PentatechLogo } from '../../components/common/PentatechLogo';
-import { PerspectiveScreenLayout } from '../../components/perspective/PerspectiveScreenLayout';
 import confetti from 'canvas-confetti';
 import {
   CheckCircle2,
@@ -43,7 +42,6 @@ export const JoinPage: React.FC<JoinPageProps> = ({ onNavigate }) => {
     'Embedded C / RTOS',
   ]);
 
-  const [applicationMode, setApplicationMode] = useState<'3d-terminal' | 'dossier'>('3d-terminal');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const availableSkills = [
@@ -115,41 +113,8 @@ export const JoinPage: React.FC<JoinPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Experience Mode Switcher */}
-      <div className="max-w-md mx-auto px-4 -mt-6 sm:-mt-7 relative z-20">
-        <div className="p-1 rounded-2xl bg-[#111111] border border-[#D99A28]/35 flex items-center justify-between shadow-2xl backdrop-blur-xl">
-          <button
-            type="button"
-            onClick={() => setApplicationMode('3d-terminal')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-              applicationMode === '3d-terminal'
-                ? 'bg-[#FFC857] text-black shadow-md font-bold'
-                : 'text-[#A5A5A5] hover:text-white'
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>3D Perspective Terminal</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setApplicationMode('dossier')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-              applicationMode === 'dossier'
-                ? 'bg-[#FFC857] text-black shadow-md font-bold'
-                : 'text-[#A5A5A5] hover:text-white'
-            }`}
-          >
-            <User className="w-3.5 h-3.5" />
-            <span>Fellowship Dossier</span>
-          </button>
-        </div>
-      </div>
-
-      {applicationMode === '3d-terminal' ? (
-        <PerspectiveScreenLayout standalone onNavigate={onNavigate} />
-      ) : (
-        /* Main Form Section */
-        <section className="py-12 sm:py-20 bg-[#050505]">
+      {/* Main Form Section */}
+      <section className="py-12 sm:py-20 bg-[#050505]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {isSubmitted ? (
             <div className="p-6 sm:p-14 rounded-3xl bg-[#111111] border border-[#D99A28]/50 text-center space-y-6 shadow-[0_0_60px_rgba(217,154,40,0.2)]">
@@ -432,7 +397,6 @@ export const JoinPage: React.FC<JoinPageProps> = ({ onNavigate }) => {
           )}
         </div>
       </section>
-      )}
     </div>
   );
 };

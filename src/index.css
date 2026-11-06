@@ -6,16 +6,16 @@
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'Space Mono', monospace;
 
-  --color-black-deep: #050505;
-  --color-black-midnight: #090909;
-  --color-surface: #111111;
-  --color-card: #171717;
-  --color-card-border: rgba(217, 154, 40, 0.15);
+  --color-black-deep: #000000;
+  --color-black-midnight: #050505;
+  --color-surface: #0a0a0a;
+  --color-card: #0d0d0d;
+  --color-card-border: rgba(217, 154, 40, 0.25);
 
   --color-gold-primary: #D99A28;
   --color-gold-bright: #FFC857;
   --color-gold-light: #FFE09A;
-  --color-gold-bronze: #9C571B;
+  --color-gold-bronze: #9A6812;
 
   --color-accent-crimson: #B52B20;
   --color-accent-blue: #168BDA;
@@ -26,7 +26,15 @@
   color-scheme: dark;
 }
 
-body {
+/* =========================================================================
+   DARK MODE (DEFAULT & TOTAL BLACK SYSTEM WITH BALANCED WHITE & GOLD)
+   ========================================================================= */
+html:not(.light),
+html.dark,
+body:not(.light),
+.dark body {
+  background-color: #000000;
+  color: #FFFFFF;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -34,206 +42,215 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-family: 'Outfit', sans-serif;
 }
 
-/* Metallic Gold Gradients */
+/* Total black background system in dark mode */
+html:not(.light) .bg-\[\#050505\],
+html.dark .bg-\[\#050505\],
+html:not(.light) .bg-\[\#070707\],
+html.dark .bg-\[\#070707\],
+html:not(.light) .bg-\[\#090909\],
+html.dark .bg-\[\#090909\],
+html:not(.light) .bg-\[\#0e0e0e\],
+html.dark .bg-\[\#0e0e0e\],
+html:not(.light) .bg-stone-900,
+html.dark .bg-stone-900,
+html:not(.light) .bg-neutral-950,
+html.dark .bg-neutral-950 {
+  background-color: #000000;
+}
+
+/* Card surfaces in dark mode */
+html:not(.light) .bg-\[\#111111\],
+html.dark .bg-\[\#111111\],
+html:not(.light) .bg-\[\#141414\],
+html.dark .bg-\[\#141414\],
+html:not(.light) .bg-\[\#171717\],
+html.dark .bg-\[\#171717\] {
+  background-color: #0a0a0a;
+}
+
+/* Gold Gradient Typography */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFE09A 0%, #FFC857 40%, #D99A28 70%, #9C571B 100%);
+  background: linear-gradient(135deg, #FFE09A 0%, #FFC857 45%, #D99A28 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 0 30px rgba(255, 200, 87, 0.25);
 }
 
+/* Gold Gradient Background for Primary Buttons & Highlights */
 .gold-gradient-bg {
-  background: linear-gradient(135deg, #FFE09A 0%, #FFC857 40%, #D99A28 70%, #9C571B 100%);
+  background: linear-gradient(135deg, #FFE09A 0%, #FFC857 50%, #D99A28 100%);
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 0 25px rgba(255, 200, 87, 0.35);
 }
 
+.gold-gradient-bg:hover {
+  box-shadow: 0 0 35px rgba(255, 200, 87, 0.55);
+}
+
+/* Gold border glow effects */
 .gold-border-glow {
-  border: 1px solid rgba(217, 154, 40, 0.35);
-  box-shadow: 0 0 25px -5px rgba(217, 154, 40, 0.15);
+  border: 1px solid rgba(217, 154, 40, 0.45);
+  box-shadow: 0 0 25px -4px rgba(217, 154, 40, 0.25);
 }
 
 .gold-border-glow-hover {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .gold-border-glow-hover:hover {
-  border-color: rgba(255, 200, 87, 0.5);
-  box-shadow: 0 0 30px -5px rgba(217, 154, 40, 0.3);
+  border-color: rgba(255, 200, 87, 0.75);
+  box-shadow: 0 0 30px -4px rgba(255, 200, 87, 0.4);
 }
 
-/* Geometric Triangular Pattern background inspired by official Pentatech logo */
+/* Geometric pattern on dark */
 .bg-triangular-pattern {
-  background-image: radial-gradient(rgba(217, 154, 40, 0.08) 1px, transparent 1px), radial-gradient(rgba(22, 139, 218, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 200, 87, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
+  background-position: 0 0;
 }
 
-/* 3D Perspective & Depth Utilities */
-.perspective-1500 {
-  perspective: 1500px;
-}
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-/* Custom sleek gold scrollbar */
+/* Sleek scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090909;
-}
-html.light ::-webkit-scrollbar-track {
-  background: #F3F4F6;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: rgba(217, 154, 40, 0.3);
   border-radius: 3px;
 }
-html.light ::-webkit-scrollbar-thumb {
-  background: #D1D5DB;
-}
 ::-webkit-scrollbar-thumb:hover {
-  background: #D99A28;
+  background: rgba(255, 200, 87, 0.65);
 }
 
-/* High-Contrast Light Mode Enhancements */
-html.light {
-  color-scheme: light;
+/* =========================================================================
+   LIGHT MODE SYSTEM (FIXED & HIGH CONTRAST WITH WARM GOLD ACCENTS)
+   ========================================================================= */
+html.light,
+html.light body,
+[data-theme="light"],
+[data-theme="light"] body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
 }
 
-html.light body {
-  background-color: #F8F9FA !important;
-  color: #1E293B !important;
-}
-
-/* Base surface overrides in Light Mode */
-html.light .bg-\[\#050505\] {
-  background-color: #F8F9FA !important;
-}
-
+/* Light mode backgrounds */
+html.light .bg-black,
+html.light .bg-\[\#050505\],
 html.light .bg-\[\#070707\],
-html.light .bg-\[\#090909\] {
+html.light .bg-\[\#090909\],
+html.light .bg-\[\#0e0e0e\],
+html.light .bg-\[\#050505\]\/95,
+html.light .bg-neutral-950,
+html.light .bg-stone-900 {
+  background-color: #F8FAFC !important;
+}
+
+/* Light mode card surfaces */
+html.light .bg-\[\#111111\],
+html.light .bg-\[\#141414\],
+html.light .bg-\[\#171717\],
+html.light .bg-\[\#1a1a1a\],
+html.light .bg-\[\#1f1f1f\],
+html.light .bg-neutral-900,
+html.light .bg-black\/90,
+html.light .bg-black\/85,
+html.light .bg-black\/70 {
   background-color: #FFFFFF !important;
 }
 
-html.light .bg-\[\#0e0e0e\]\/80,
-html.light .bg-\[\#090909\]\/80,
-html.light .bg-\[\#090909\]\/90,
-html.light .bg-\[\#090909\]\/95 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-html.light .bg-\[\#050505\]\/95 {
-  background-color: rgba(255, 255, 255, 0.97) !important;
-}
-
-html.light .bg-\[\#070707\]\/95 {
-  background-color: rgba(248, 250, 252, 0.95) !important;
-}
-
-/* Card surfaces in Light Mode */
-html.light .bg-\[\#111111\],
-html.light .bg-\[\#171717\],
+/* Light mode card gradients */
 html.light .bg-gradient-to-b.from-\[\#171717\].to-\[\#111111\],
 html.light .bg-gradient-to-b.from-\[\#141414\].to-\[\#0c0c0c\] {
   background-color: #FFFFFF !important;
   background-image: none !important;
-  border-color: rgba(180, 83, 9, 0.22) !important;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
 }
 
-html.light .bg-\[\#141414\] {
-  background-color: #F1F5F9 !important;
-}
-
-html.light .bg-\[\#1f1f1f\] {
-  background-color: #E2E8F0 !important;
-}
-
-html.light .bg-black\/85,
-html.light .bg-black\/70,
-html.light .bg-black\/60 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(180, 83, 9, 0.25) !important;
-}
-
-/* Typography Balance in Light Mode */
-html.light h1,
-html.light h2,
-html.light h3,
-html.light h4,
-html.light .font-display,
+/* Light mode text colors */
 html.light .text-white {
   color: #0F172A !important;
 }
 
-/* Maintain dark text on gold buttons and badges */
-html.light .text-black,
-html.light button.text-black,
-html.light .bg-gradient-to-r span,
-html.light [class*="bg-amber-"] .text-black,
-html.light [class*="bg-[#FFC857]"] {
-  color: #000000 !important;
+html.light h1.text-white,
+html.light h2.text-white,
+html.light h3.text-white,
+html.light h4.text-white {
+  color: #0F172A !important;
 }
 
-/* Body & secondary descriptions */
 html.light p,
+html.light .text-neutral-300,
 html.light .text-\[\#A5A5A5\],
 html.light .text-\[\#B0B0B0\],
-html.light .text-\[\#CBD5E1\] {
-  color: #334155 !important;
-}
-
-/* Muted metadata & labels */
-html.light .text-\[\#888\],
-html.light .text-\[\#777\],
-html.light .text-\[\#666\],
-html.light .text-\[\#555\] {
+html.light .text-\[\#CBD5E1\],
+html.light .text-stone-300,
+html.light .text-stone-400 {
   color: #475569 !important;
 }
 
-/* Gold Gradient Text adaptation in Light Mode (Deep warm metallic amber for readability) */
+html.light .text-neutral-400,
+html.light .text-\[\#8e8e8e\],
+html.light .text-\[\#888\],
+html.light .text-\[\#777\] {
+  color: #64748B !important;
+}
+
+/* Light mode gold typography remains rich and legible */
+html.light .text-\[\#FFC857\],
+html.light .text-\[\#FFE09A\] {
+  color: #B47A1A !important;
+}
+html.light .text-\[\#D99A28\] {
+  color: #925807 !important;
+}
+
 html.light .gold-gradient-text {
-  background: linear-gradient(135deg, #B45309 0%, #D97706 45%, #92400E 100%) !important;
+  background: linear-gradient(135deg, #B47A1A 0%, #D99A28 50%, #784503 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  filter: drop-shadow(0 1px 1px rgba(180, 83, 9, 0.2));
+  text-shadow: none !important;
 }
 
-html.light .text-\[\#FFC857\] {
-  color: #B45309 !important;
+/* Light mode borders */
+html.light .border-white,
+html.light .border-white\/20,
+html.light .border-white\/30,
+html.light .border-white\/40,
+html.light .border-neutral-700,
+html.light .border-neutral-800,
+html.light .border-stone-800 {
+  border-color: #E2E8F0 !important;
 }
 
-html.light .text-\[\#D99A28\] {
-  color: #92400E !important;
+html.light [class*="border-\[\#D99A28\]"],
+html.light [class*="border-\[\#FFC857\]"] {
+  border-color: rgba(217, 154, 40, 0.4) !important;
 }
 
-/* Border balance in Light Mode */
-html.light .border-\[\#D99A28\]\/15,
-html.light .border-\[\#D99A28\]\/20,
-html.light .border-\[\#D99A28\]\/25,
-html.light .border-\[\#D99A28\]\/30,
-html.light .border-\[\#D99A28\]\/35,
-html.light .border-\[\#D99A28\]\/40,
-html.light .border-\[\#D99A28\]\/50 {
-  border-color: rgba(180, 83, 9, 0.28) !important;
+/* Light mode primary button */
+html.light .gold-gradient-bg,
+html.light .bg-gradient-to-r.from-\[\#FFE09A\].via-\[\#FFC857\].to-\[\#D99A28\],
+html.light .bg-gradient-to-r.from-\[\#D99A28\].to-\[\#FFC857\] {
+  background: linear-gradient(135deg, #FFE09A 0%, #FFC857 50%, #D99A28 100%) !important;
+  color: #000000 !important;
+  border: 1px solid #D99A28 !important;
 }
 
-html.light .border-\[\#FFC857\]\/40,
-html.light .border-\[\#FFC857\]\/50,
-html.light .border-\[\#FFC857\]\/60 {
-  border-color: rgba(217, 119, 6, 0.45) !important;
+html.light button.bg-white {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #0F172A !important;
 }
 
-/* Background grid in Light Mode */
-html.light .bg-triangular-pattern {
-  background-image: radial-gradient(rgba(180, 83, 9, 0.16) 1px, transparent 1px), radial-gradient(rgba(2, 132, 199, 0.08) 1px, transparent 1px);
+html.light button.bg-white * {
+  color: #FFFFFF !important;
 }
 
-/* Inputs & Textareas in Light Mode */
-html.light input:not([type="range"]):not([type="checkbox"]),
+/* Light mode input fields */
+html.light input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
 html.light select,
 html.light textarea {
   background-color: #FFFFFF !important;
@@ -241,9 +258,23 @@ html.light textarea {
   border-color: #CBD5E1 !important;
 }
 
-html.light input:not([type="range"]):not([type="checkbox"]):focus,
+html.light input:focus,
 html.light select:focus,
 html.light textarea:focus {
-  border-color: #D97706 !important;
-  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.15) !important;
+  border-color: #D99A28 !important;
+  box-shadow: 0 0 0 2px rgba(217, 154, 40, 0.2) !important;
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+/* Selection */
+::selection {
+  background-color: #FFC857;
+  color: #000000;
 }

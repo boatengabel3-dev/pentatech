@@ -17,7 +17,7 @@ export const PublicLayout: React.FC<PublicLayoutProps> = ({
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#050505] text-[#A5A5A5] selection:bg-[#D99A28]/30 selection:text-[#FFC857] relative">
+    <div className="min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black relative">
       <PublicNavbar
         currentPath={currentPath}
         onNavigate={onNavigate}

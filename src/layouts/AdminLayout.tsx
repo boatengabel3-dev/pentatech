@@ -30,7 +30,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ onViewLiveSite }) => {
   };
 
   return (
-    <div className="flex h-screen bg-[#050505] text-[#A5A5A5] overflow-hidden">
+    <div className="flex h-screen bg-black text-white overflow-hidden">
       {/* Desktop Sidebar */}
       <div className="hidden lg:block shrink-0">
         <AdminSidebar
@@ -50,10 +50,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ onViewLiveSite }) => {
       {mobileSidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex">
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm"
             onClick={() => setMobileSidebarOpen(false)}
           />
-          <div className="relative z-10 w-72 h-full bg-[#090909]">
+          <div className="relative z-10 w-72 h-full bg-black border-r border-white/20">
             <AdminSidebar
               currentTab={currentTab}
               onSelectTab={(tab) => {
@@ -84,7 +84,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ onViewLiveSite }) => {
           onSearchChange={setSearchFilter}
         />
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#050505] bg-triangular-pattern">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-8 bg-black">
           <div className="max-w-7xl mx-auto">
             {currentTab === 'dashboard' && (
               <AdminDashboardOverview

@@ -116,12 +116,12 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
 
   return (
     <aside
-      className={`relative z-30 flex flex-col justify-between bg-[#090909] border-r border-[#D99A28]/20 transition-all duration-300 h-screen overflow-hidden ${
+      className={`relative z-30 flex flex-col justify-between bg-black border-r border-white/20 transition-all duration-300 h-screen overflow-hidden ${
         collapsed ? 'w-20' : 'w-64 sm:w-72'
       }`}
     >
       {/* Top Brand area */}
-      <div className="p-4 border-b border-[#D99A28]/15 flex items-center justify-between">
+      <div className="p-4 border-b border-white/15 flex items-center justify-between">
         <div
           onClick={onViewLiveSite}
           className="flex items-center gap-3 cursor-pointer group overflow-hidden"
@@ -130,10 +130,10 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
           <PentatechLogo variant="emblem" size="sm" glow />
           {!collapsed && (
             <div className="flex flex-col truncate">
-              <span className="font-display font-extrabold text-sm text-white group-hover:text-[#FFC857] transition-colors truncate">
+              <span className="font-display font-extrabold text-sm text-white group-hover:text-white transition-colors truncate">
                 PENTATECH CMS
               </span>
-              <span className="text-[9px] font-mono tracking-widest text-[#D99A28] uppercase">
+              <span className="text-[9px] font-mono tracking-widest text-neutral-400 uppercase">
                 Enterprise Admin
               </span>
             </div>
@@ -142,7 +142,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
 
         <button
           onClick={onToggleCollapse}
-          className="p-1.5 rounded-lg text-[#A5A5A5] hover:text-white hover:bg-[#171717] transition-colors"
+          className="p-1.5 rounded-lg text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors"
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -169,20 +169,20 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                   title={collapsed ? item.label : undefined}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-medium transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#D99A28]/20 to-[#171717] text-[#FFC857] border border-[#D99A28]/40 shadow-sm font-semibold'
-                      : 'text-[#A5A5A5] hover:text-white hover:bg-[#111111]'
+                      ? 'bg-white text-black font-bold border border-white shadow-sm'
+                      : 'text-neutral-300 hover:text-white hover:bg-neutral-900'
                   } ${collapsed ? 'justify-center px-0' : ''}`}
                 >
                   <IconComp
                     className={`w-4 h-4 shrink-0 ${
-                      isActive ? 'text-[#FFC857]' : 'text-[#888]'
+                      isActive ? 'text-black' : 'text-neutral-400'
                     }`}
                   />
                   {!collapsed && (
                     <span className="flex-1 text-left truncate">{item.label}</span>
                   )}
                   {!collapsed && item.badge !== undefined && (
-                    <span className="px-1.5 py-0.5 text-[10px] font-mono font-bold rounded-full bg-[#D99A28] text-black">
+                    <span className="px-1.5 py-0.5 text-[10px] font-mono font-bold rounded-full bg-white text-black">
                       {item.badge}
                     </span>
                   )}
@@ -194,17 +194,17 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
       </div>
 
       {/* Footer User info & Logout (Item 19) */}
-      <div className="p-3 border-t border-[#D99A28]/15 bg-[#050505] space-y-2">
+      <div className="p-3 border-t border-white/15 bg-black space-y-2">
         {!collapsed && user && (
-          <div className="px-3 py-2 rounded-xl bg-[#111111] border border-[#D99A28]/20 flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-[#171717] border border-[#D99A28]/40 flex items-center justify-center text-xs font-bold text-[#FFC857] shrink-0">
+          <div className="px-3 py-2 rounded-xl bg-black border border-white/20 flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-full bg-black border border-white/40 flex items-center justify-center text-xs font-bold text-white shrink-0">
               {user.name.charAt(0)}
             </div>
             <div className="flex-1 min-w-0">
               <span className="text-xs font-semibold text-white truncate block">
                 {user.name}
               </span>
-              <span className="text-[10px] font-mono text-[#D99A28] truncate block">
+              <span className="text-[10px] font-mono text-neutral-400 truncate block">
                 {user.role}
               </span>
             </div>

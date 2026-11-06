@@ -37,7 +37,7 @@ export const PentatechLogo: React.FC<PentatechLogoProps> = ({
     return (
       <div
         className={`relative overflow-hidden rounded-xl inline-flex items-center justify-center shrink-0 ${emblemSizeMap[size]} ${
-          glow ? 'drop-shadow-[0_0_25px_rgba(217,154,40,0.45)]' : ''
+          glow ? 'drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]' : ''
         } ${className}`}
       >
         <img
@@ -53,7 +53,7 @@ export const PentatechLogo: React.FC<PentatechLogoProps> = ({
   return (
     <div
       className={`inline-flex items-center shrink-0 ${
-        glow ? 'drop-shadow-[0_0_20px_rgba(217,154,40,0.3)]' : ''
+        glow ? 'drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]' : ''
       } ${className}`}
     >
       <img

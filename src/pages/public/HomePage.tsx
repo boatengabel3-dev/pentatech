@@ -5,7 +5,6 @@ import { HeroCanvas } from '../../components/common/HeroCanvas';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { ProjectCard } from '../../components/cards/ProjectCard';
 import { ProjectDetailModal } from '../../components/cards/ProjectDetailModal';
-import { PerspectiveScreenLayout } from '../../components/perspective/PerspectiveScreenLayout';
 import { RevealSection } from '../../components/common/RevealSection';
 import { Project } from '../../types';
 import {
@@ -78,31 +77,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/75 to-[#050505]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black" />
         </div>
 
         {/* Hero Content Container */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-24 relative z-10 w-full text-center">
           <div className="space-y-5 sm:space-y-7 flex flex-col items-center">
-            {/* Organization Beacon Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#111111]/90 border border-[#D99A28]/40 backdrop-blur-md shadow-sm">
+            {/* Organization Beacon Badge matching user attachment image_ee95c60f.png */}
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-black/95 border border-[#D99A28] shadow-[0_0_20px_rgba(217,154,40,0.25)] backdrop-blur-md">
               <PentatechLogo variant="emblem" size="xs" />
-              <span className="text-xs uppercase tracking-[0.22em] text-[#FFC857] font-semibold">
-                Pan-African Deeptech Collective
+              <span className="text-xs sm:text-sm uppercase tracking-[0.22em] text-[#FFC857] font-bold">
+                PAN-AFRICAN DEEPTECH COLLECTIVE
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#168BDA] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#0088FF] shadow-[0_0_8px_#0088FF]" />
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08] max-w-4xl text-balance">
               {hero.headline}{' '}
-              <span className="gold-gradient-text block mt-1.5 sm:mt-2 drop-shadow-[0_4px_30px_rgba(217,154,40,0.35)]">
+              <span className="gold-gradient-text block mt-1.5 sm:mt-2">
                 {hero.highlightWord}
               </span>
             </h1>
 
             {/* Subheadline with high contrast */}
-            <p className="text-base sm:text-xl text-[#CBD5E1] max-w-2xl mx-auto leading-relaxed text-balance">
+            <p className="text-base sm:text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed text-balance">
               {hero.subheadline}
             </p>
 
@@ -110,15 +109,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button
                 onClick={() => onNavigate(hero.primaryCtaLink || '/projects')}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide uppercase text-black bg-gradient-to-r from-[#FFE09A] via-[#FFC857] to-[#D99A28] hover:shadow-[0_0_35px_rgba(255,200,87,0.45)] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide uppercase text-black gold-gradient-bg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-md"
               >
                 <span>{hero.primaryCtaText || 'Explore Projects'}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-black" />
               </button>
 
               <button
                 onClick={() => onNavigate('/innovation')}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide uppercase text-white bg-[#111111] hover:bg-[#1a1a1a] border border-[#D99A28]/40 hover:border-[#FFC857] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-semibold tracking-wide uppercase text-white bg-black hover:bg-neutral-900 border border-[#D99A28]/40 hover:border-[#FFC857] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-sm"
               >
                 <Sparkles className="w-4 h-4 text-[#FFC857]" />
                 <span>Innovation Pillars</span>
@@ -152,70 +151,125 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           1. INTRODUCTION SECTION
           ========================================================================= */}
       {visibility.introduction && (
-        <RevealSection as="section" className="py-14 sm:py-24 bg-[#090909] border-b border-[#D99A28]/15 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              <div className="lg:col-span-5 relative">
-                <div className="relative rounded-2xl overflow-hidden border border-[#D99A28]/30 shadow-2xl">
-                  <img
-                    src="/src/assets/images/community_innovation_lab_1793734786218.jpg"
-                    alt="Innovation Lab"
-                    className="w-full h-64 sm:h-80 object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-black/40 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 sm:p-4 rounded-xl bg-black/85 backdrop-blur-md border border-[#D99A28]/30">
-                    <p className="text-[10px] sm:text-xs font-mono text-[#FFC857] uppercase tracking-wider font-semibold">
-                      Collaborative Fabrication Facility
-                    </p>
-                    <p className="text-xs text-white mt-1">
-                      Makers and hardware engineers developing tomorrow's sovereign infrastructure.
-                    </p>
+        <RevealSection as="section" className="py-16 sm:py-24 bg-[#050505] border-b border-[#D99A28]/20 relative overflow-hidden">
+          {/* Subtle gold ambient glow */}
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D99A28]/5 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            {/* Header Manifesto */}
+            <div className="max-w-4xl mx-auto text-center space-y-4 mb-12 sm:mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black border border-[#D99A28]/50 text-[#FFC857] text-[11px] font-mono uppercase tracking-[0.2em] font-semibold">
+                <Compass className="w-3.5 h-3.5 text-[#FFC857]" />
+                <span>The Genesis & Continental Mandate</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.12]">
+                African Technology with{' '}
+                <span className="gold-gradient-text">Global Ambition</span>
+              </h2>
+
+              <p className="text-sm sm:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+                Team Pentatech was founded as an elite technological collective uniting Africa's foremost software engineers, computational researchers, robotics pioneers, and hardware builders into an interconnected frontier of innovation.
+              </p>
+            </div>
+
+            {/* Redesigned 3-Column Core Tenets Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
+              <div className="p-6 sm:p-8 rounded-2xl bg-black border border-[#D99A28]/35 hover:border-[#FFC857]/70 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-black border border-[#D99A28]/60 flex items-center justify-center text-[#FFC857] group-hover:scale-110 transition-transform">
+                    <Compass className="w-6 h-6" />
                   </div>
+                  <div>
+                    <span className="text-[10px] font-mono text-[#D99A28] uppercase tracking-wider block mb-1">
+                      Pillar 01 / Autonomy
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-[#FFC857] transition-colors">
+                      Sovereign Engineering
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    Building full-stack hardware and autonomous software tailored specifically for African resilience, energy independence, and global technological competitiveness.
+                  </p>
+                </div>
+                <div className="pt-5 mt-5 border-t border-[#D99A28]/20 flex items-center justify-between text-xs text-[#FFC857]">
+                  <span className="font-mono text-[11px]">Hardware & Embedded OS</span>
+                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
 
-              <div className="lg:col-span-7 space-y-4 sm:space-y-6">
-                <SectionHeading
-                  align="left"
-                  badge="The Genesis"
-                  title="African Technology with"
-                  highlight="Global Ambition"
-                  description="Team Pentatech was founded as an elite technological collective to unite Africa's foremost engineers, computational researchers, and hardware builders into an interconnected frontier of innovation."
-                  className="mb-4 sm:mb-6"
-                />
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1 sm:pt-2">
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#111111] border border-[#D99A28]/20">
-                    <h4 className="text-sm sm:text-base font-bold text-white mb-1.5 flex items-center gap-2">
-                      <Compass className="w-4 h-4 text-[#FFC857]" />
-                      Sovereign Engineering
-                    </h4>
-                    <p className="text-xs text-[#A5A5A5] leading-relaxed">
-                      Building full-stack hardware and autonomous software tailored specifically for African resilience and global competitiveness.
-                    </p>
+              <div className="p-6 sm:p-8 rounded-2xl bg-black border border-[#D99A28]/35 hover:border-[#FFC857]/70 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-black border border-[#168BDA]/50 flex items-center justify-center text-[#168BDA] group-hover:scale-110 transition-transform">
+                    <Users className="w-6 h-6" />
                   </div>
-
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#111111] border border-[#D99A28]/20">
-                    <h4 className="text-sm sm:text-base font-bold text-white mb-1.5 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-[#168BDA]" />
+                  <div>
+                    <span className="text-[10px] font-mono text-[#168BDA] uppercase tracking-wider block mb-1">
+                      Pillar 02 / Fellowship
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-[#168BDA] transition-colors">
                       Borderless Fellowship
-                    </h4>
-                    <p className="text-xs text-[#A5A5A5] leading-relaxed">
-                      Bridging universities, research laboratories, and industry titans across Ghana, Kenya, Nigeria, Rwanda, and the diaspora.
-                    </p>
+                    </h3>
                   </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    Bridging universities, research laboratories, and industry titans across Ghana, Kenya, Nigeria, Rwanda, and the worldwide African tech diaspora.
+                  </p>
                 </div>
+                <div className="pt-5 mt-5 border-t border-[#D99A28]/20 flex items-center justify-between text-xs text-[#168BDA]">
+                  <span className="font-mono text-[11px]">Continental Network</span>
+                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
 
-                <div className="pt-2">
-                  <button
-                    onClick={() => onNavigate('/about')}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#141414] hover:bg-[#1f1f1f] border border-[#D99A28]/30 text-xs sm:text-sm font-semibold text-[#FFC857] hover:text-white transition-all cursor-pointer"
-                  >
-                    <span>Read Full Organizational Profile</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+              <div className="p-6 sm:p-8 rounded-2xl bg-black border border-[#D99A28]/35 hover:border-[#FFC857]/70 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group">
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl bg-black border border-emerald-500/50 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider block mb-1">
+                      Pillar 03 / Deployment
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-emerald-300 transition-colors">
+                      High-Impact Deployments
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                    Transitioning research prototypes directly into field production deployments across agriculture telemetry, decentralized energy microgrids, and diagnostic platforms.
+                  </p>
                 </div>
+                <div className="pt-5 mt-5 border-t border-[#D99A28]/20 flex items-center justify-between text-xs text-emerald-400">
+                  <span className="font-mono text-[11px]">Field Proven Solutions</span>
+                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </div>
+
+            {/* Architectural Profile Action Bar */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#0a0a0a] border border-[#D99A28]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+              <div>
+                <h4 className="text-base sm:text-lg font-bold text-white">
+                  Discover Our Complete Research & Engineering Architecture
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+                  Explore our leadership, founding charter, institutional partners, and technical publications.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
+                <button
+                  onClick={() => onNavigate('/about')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm active:scale-95"
+                >
+                  <span>Read Profile</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-black" />
+                </button>
+                <button
+                  onClick={() => onNavigate('/projects')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-black hover:bg-neutral-900 border border-[#D99A28]/50 hover:border-[#FFC857] text-[#FFC857] text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer active:scale-95 shadow-sm"
+                >
+                  <span>View Projects</span>
+                </button>
               </div>
             </div>
           </div>
@@ -239,7 +293,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               />
               <button
                 onClick={() => onNavigate('/innovation')}
-                className="w-full md:w-auto justify-center px-4 py-2.5 rounded-xl bg-[#171717] hover:bg-[#D99A28] text-white hover:text-black border border-[#D99A28]/30 text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer"
+                className="w-full md:w-auto justify-center px-4 py-2.5 rounded-xl bg-black hover:bg-white text-white hover:text-black border border-white/30 hover:border-white text-xs font-semibold uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer shadow-sm"
               >
                 <span>View All Innovation Areas</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -253,24 +307,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <div
                     key={cat.id}
                     onClick={() => onNavigate('/innovation')}
-                    className="group p-5 sm:p-6 rounded-2xl bg-[#111111] border border-[#D99A28]/25 hover:border-[#FFC857]/60 transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(217,154,40,0.2)] flex flex-col justify-between cursor-pointer"
+                    className="group p-5 sm:p-6 rounded-2xl bg-black border border-white/20 hover:border-white/60 transition-all duration-300 hover:shadow-[0_10px_35px_-5px_rgba(255,255,255,0.12)] flex flex-col justify-between cursor-pointer"
                   >
                     <div>
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#171717] border border-[#D99A28]/35 flex items-center justify-center text-[#FFC857] group-hover:bg-[#D99A28] group-hover:text-black transition-all mb-4">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-black border border-white/30 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all mb-4">
                         <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#D99A28] block mb-1">
+                      <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-neutral-400 block mb-1">
                         Pillar 0{cat.order || idx + 1}
                       </span>
-                      <h3 className="text-base font-display font-bold text-white group-hover:text-[#FFC857] transition-colors mb-2">
+                      <h3 className="text-base font-display font-bold text-white group-hover:text-neutral-200 transition-colors mb-2">
                         {cat.title}
                       </h3>
-                      <p className="text-xs text-[#A5A5A5] line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-neutral-300 line-clamp-3 leading-relaxed">
                         {cat.description}
                       </p>
                     </div>
 
-                    <div className="pt-4 mt-4 border-t border-[#D99A28]/15 flex items-center justify-between text-xs text-[#FFC857]">
+                    <div className="pt-4 mt-4 border-t border-white/15 flex items-center justify-between text-xs text-white">
                       <span>Explore Research</span>
                       <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </div>
@@ -282,20 +336,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </RevealSection>
       )}
 
-      {/* =========================================================================
-          3D PERSPECTIVE SCREEN & GLASSMORPHIC INPUT MATRIX
-          ========================================================================= */}
-      <RevealSection as="section" className="py-14 sm:py-24 bg-[#070707] border-b border-[#D99A28]/20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center sm:text-left">
-          <SectionHeading
-            badge="Interactive 3D Perspective Architecture"
-            title="Sovereign Engineering &"
-            highlight="Dispatch Terminal"
-            description="Experience our high-fidelity, mouse-reactive 3D screen layout built with perspective-1500 and framer-motion. Configure telemetry parameters, allocate compute bandwidth, and dispatch project specifications directly."
-          />
-        </div>
-        <PerspectiveScreenLayout onNavigate={onNavigate} />
-      </RevealSection>
+
 
       {/* =========================================================================
           3. FEATURED PROJECTS

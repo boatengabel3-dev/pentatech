@@ -50,7 +50,7 @@ export const PerspectiveScreenLayout: React.FC<PerspectiveScreenLayoutProps> = (
   const glareBackground = useTransform(
     [glareX, glareY],
     ([gx, gy]) =>
-      `radial-gradient(circle 380px at ${gx} ${gy}, rgba(255, 200, 87, 0.16), transparent 70%)`
+      `radial-gradient(circle 380px at ${gx} ${gy}, rgba(255, 255, 255, 0.12), transparent 70%)`
   );
 
   // Interactive Form State

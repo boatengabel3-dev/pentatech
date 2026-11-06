@@ -62,21 +62,21 @@ export const AdminTopbar: React.FC<AdminTopbarProps> = ({
   const pendingApps = applications.filter((a) => a.status === 'Pending');
 
   return (
-    <header className="sticky top-0 z-20 h-16 bg-[#090909]/95 backdrop-blur-md border-b border-[#D99A28]/20 px-4 sm:px-6 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-20 h-16 bg-black/95 backdrop-blur-md border-b border-white/20 px-4 sm:px-6 flex items-center justify-between gap-4">
       {/* Left: Mobile hamburger & Breadcrumbs */}
       <div className="flex items-center gap-3">
         <button
           onClick={onToggleMobileSidebar}
-          className="lg:hidden p-2 text-[#A5A5A5] hover:text-white"
+          className="lg:hidden p-2 text-neutral-300 hover:text-white"
           aria-label="Open sidebar"
         >
           <Menu className="w-5 h-5" />
         </button>
 
         <div className="flex items-center gap-2 text-xs font-mono min-w-0">
-          <span className="text-[#666] hidden sm:inline">CMS</span>
-          <span className="text-[#666] hidden sm:inline">/</span>
-          <span className="text-[#FFC857] font-semibold truncate max-w-[140px] sm:max-w-none">
+          <span className="text-neutral-500 hidden sm:inline">CMS</span>
+          <span className="text-neutral-500 hidden sm:inline">/</span>
+          <span className="text-white font-bold truncate max-w-[140px] sm:max-w-none">
             {tabLabels[currentTab]}
           </span>
         </div>
@@ -85,13 +85,13 @@ export const AdminTopbar: React.FC<AdminTopbarProps> = ({
       {/* Center: Search input */}
       <div className="flex-1 max-w-md hidden md:block">
         <div className="relative">
-          <Search className="w-3.5 h-3.5 text-[#777] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchFilter}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder={`Filter records in ${tabLabels[currentTab]}...`}
-            className="w-full pl-9 pr-3 py-1.5 bg-[#111111] border border-[#D99A28]/25 rounded-lg text-xs text-white placeholder-[#666] focus:outline-none focus:border-[#FFC857]"
+            className="w-full pl-9 pr-3 py-1.5 bg-black border border-white/25 rounded-lg text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-white"
           />
         </div>
       </div>
@@ -102,16 +102,16 @@ export const AdminTopbar: React.FC<AdminTopbarProps> = ({
         <button
           onClick={resetAllToDefault}
           title="Reset CMS to sample placeholder data"
-          className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-mono text-[#A5A5A5] hover:text-white bg-[#111111] hover:bg-[#1a1a1a] border border-[#D99A28]/20 transition-colors"
+          className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-mono text-neutral-300 hover:text-white bg-black hover:bg-neutral-900 border border-white/20 transition-colors"
         >
-          <RotateCcw className="w-3 h-3 text-[#D99A28]" />
+          <RotateCcw className="w-3 h-3 text-white" />
           <span>Reset Demo</span>
         </button>
 
         {/* View Live Website Button */}
         <button
           onClick={onViewLiveSite}
-          className="px-3 py-1.5 rounded-lg text-xs font-semibold text-black bg-gradient-to-r from-[#FFE09A] to-[#D99A28] hover:shadow-[0_0_15px_rgba(255,200,87,0.35)] transition-all flex items-center gap-1.5 shrink-0"
+          className="px-3 py-1.5 rounded-lg text-xs font-bold text-black bg-white hover:bg-neutral-200 border border-white transition-all flex items-center gap-1.5 shrink-0 shadow-sm"
         >
           <span>View Site</span>
           <ExternalLink className="w-3.5 h-3.5" />

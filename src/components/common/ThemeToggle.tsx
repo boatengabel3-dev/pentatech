@@ -17,30 +17,26 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
     return (
       <button
         onClick={toggleTheme}
-        className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border flex items-center justify-between transition-all duration-300 cursor-pointer ${
+        className={`w-full min-h-[46px] px-3.5 py-2.5 rounded-xl border ${
           isDark
-            ? 'bg-[#141414] hover:bg-[#1c1c1c] border-[#D99A28]/30 hover:border-[#FFC857] text-[#A5A5A5] hover:text-white'
-            : 'bg-white hover:bg-gray-100 border-[#D99A28]/40 text-gray-800 shadow-sm'
-        } ${className}`}
-        aria-label={`Switch to ${isDark ? 'high-contrast Light' : 'Dark'} mode`}
-        title={`Current: ${isDark ? 'Dark Mode' : 'Light Mode'} (Click to toggle)`}
+            ? 'border-[#D99A28]/40 bg-black text-white hover:border-[#FFC857]'
+            : 'border-slate-300 bg-white text-slate-900 hover:border-amber-500'
+        } flex items-center justify-between transition-all duration-300 cursor-pointer ${className}`}
+        aria-label="Theme mode"
+        title="Toggle Light or Dark theme"
       >
         <div className="flex items-center gap-2.5">
-          <div
-            className={`w-7 h-7 rounded-lg flex items-center justify-center transition-colors ${
-              isDark
-                ? 'bg-[#1c1c1c] text-[#FFC857]'
-                : 'bg-amber-100 text-amber-700'
-            }`}
-          >
-            {isDark ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${
+            isDark ? 'bg-black border border-[#D99A28]/40 text-[#FFC857]' : 'bg-amber-50 border border-amber-200 text-amber-600'
+          }`}>
+            {isDark ? <Moon className="w-4 h-4 text-[#FFC857]" /> : <Sun className="w-4 h-4 text-amber-600" />}
           </div>
           <div className="flex flex-col text-left">
             <span className="text-xs font-semibold">
-              {isDark ? 'Dark Mode' : 'High-Contrast Light'}
+              {isDark ? 'Deep Black & Gold Theme' : 'High-Contrast Light Theme'}
             </span>
-            <span className="text-[10px] font-mono text-[#888]">
-              {isDark ? 'Deep Black & Metallic Gold' : 'Crisp White & High Contrast'}
+            <span className="text-[10px] font-mono text-neutral-400">
+              {isDark ? 'Total Black with White & Gold Lines' : 'Crisp Slate & Amber Palette'}
             </span>
           </div>
         </div>
@@ -48,7 +44,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
         {/* Toggle Pill switch */}
         <div
           className={`w-11 h-6 rounded-full p-0.5 transition-colors relative flex items-center ${
-            isDark ? 'bg-[#222] border border-[#D99A28]/40' : 'bg-amber-500 border border-amber-600'
+            isDark ? 'bg-neutral-900 border border-[#D99A28]/50' : 'bg-amber-400 border border-amber-500'
           }`}
         >
           <div
@@ -57,7 +53,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
             }`}
           >
             {isDark ? (
-              <Moon className="w-2.5 h-2.5 text-[#050505]" />
+              <Moon className="w-2.5 h-2.5 text-black" />
             ) : (
               <Sun className="w-2.5 h-2.5 text-amber-600" />
             )}
@@ -72,8 +68,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       onClick={toggleTheme}
       className={`group relative p-1.5 sm:p-2 rounded-xl border transition-all duration-300 flex items-center gap-1.5 cursor-pointer active:scale-95 ${
         isDark
-          ? 'bg-[#141414] hover:bg-[#1a1a1a] border-[#D99A28]/30 hover:border-[#FFC857] text-[#FFC857] shadow-[0_0_15px_rgba(217,154,40,0.1)]'
-          : 'bg-white hover:bg-gray-50 border-[#D99A28]/50 text-amber-700 shadow-[0_2px_10px_rgba(217,154,40,0.2)]'
+          ? 'border-[#D99A28]/40 hover:border-[#FFC857] bg-black text-white hover:bg-neutral-900 shadow-sm'
+          : 'border-slate-300 hover:border-amber-500 bg-white text-slate-800 hover:bg-slate-50 shadow-sm'
       } ${className}`}
       aria-label={`Toggle theme (currently ${theme})`}
       title={`Switch to ${isDark ? 'High-Contrast Light Mode' : 'Dark Mode'}`}
@@ -93,7 +89,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       {/* Mini state dot */}
       <span
         className={`w-1.5 h-1.5 rounded-full ${
-          isDark ? 'bg-[#FFC857] shadow-[0_0_6px_#FFC857]' : 'bg-amber-600 shadow-[0_0_6px_#D97706]'
+          isDark ? 'bg-[#FFC857] shadow-[0_0_6px_#FFC857]' : 'bg-amber-500 shadow-[0_0_6px_#F59E0B]'
         }`}
       />
     </button>

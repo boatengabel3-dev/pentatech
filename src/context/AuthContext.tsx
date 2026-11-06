@@ -6,6 +6,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   user: AdminUser | null;
   login: (email: string, pass: string) => boolean;
+  loginWithPasscode: (passcode: string) => boolean;
   logout: () => void;
   updateProfile: (updates: Partial<AdminUser>) => void;
 }
@@ -46,6 +47,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return false;
   };
 
+  const loginWithPasscode = (passcode: string): boolean => {
+    if (passcode.trim() === '12341234') {
+      setIsAuthenticated(true);
+      setUser({
+        ...initialAdminUser,
+        email: 'admin@pentatech.org',
+        lastLogin: 'Just now',
+      });
+      return true;
+    }
+    return false;
+  };
+
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('pentatech_admin_auth');
@@ -58,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout, updateProfile }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, loginWithPasscode, logout, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );
